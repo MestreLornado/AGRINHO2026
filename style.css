@@ -165,7 +165,7 @@ section > p {
 
 .desafio-item .material-icons {
     font-size: 2.5rem;
-    color: #FFB74D; /* Cor de alerta suave - melhorada */
+    color: #FFB74D;
     margin-bottom: 1rem;
     display: inline-block;
 }
