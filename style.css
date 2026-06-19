@@ -98,6 +98,9 @@ section > p {
     box-shadow: var(--shadow);
     transition: var(--transition);
     border: 1px solid rgba(46, 125, 50, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .card:hover {
@@ -127,6 +130,7 @@ section > p {
 .card p {
     color: #666;
     line-height: 1.7;
+    text-align: center;
 }
 
 /* ==========================================================================
@@ -147,6 +151,10 @@ section > p {
     padding: 2rem;
     border-radius: 12px;
     transition: var(--transition);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
 }
 
 .desafio-item:hover {
@@ -159,7 +167,7 @@ section > p {
     font-size: 2.5rem;
     color: #FFB74D; /* Cor de alerta suave - melhorada */
     margin-bottom: 1rem;
-    display: block;
+    display: inline-block;
 }
 
 .desafio-item h3 {
@@ -207,6 +215,11 @@ section > p {
     font-size: 1.5rem;
 }
 
+.calculadora-box p {
+    margin-bottom: 1.5rem;
+    color: #666;
+}
+
 .calculadora-box label {
     display: block;
     margin: 1.5rem 0 0.5rem;
@@ -251,6 +264,7 @@ section > p {
     background-color: rgba(46, 125, 50, 0.08);
     border-radius: 8px;
     border-left: 4px solid var(--primary-color);
+    line-height: 1.6;
 }
 
 /* ==========================================================================
@@ -321,6 +335,7 @@ button {
     cursor: pointer;
     transition: var(--transition);
     outline: none;
+    display: inline-block;
 }
 
 button:hover {
@@ -405,6 +420,7 @@ footer a:hover {
     button {
         width: 100%;
         padding: 1rem;
+        margin-top: 0.5rem;
     }
 
     footer {
@@ -434,11 +450,23 @@ footer a:hover {
         font-size: 1.1rem;
     }
 
+    .desafio-item {
+        padding: 1.5rem 1rem;
+    }
+
+    .calculadora-box {
+        padding: 1.5rem 1rem;
+    }
+
     .calculadora-box h3 {
         font-size: 1.2rem;
     }
 
     #resultado-calculo {
         font-size: 1rem;
+    }
+
+    #contact-form {
+        padding: 1.5rem 1rem;
     }
 }
