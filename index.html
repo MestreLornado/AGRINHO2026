@@ -1,5 +1,17 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sustentabilidade no Campo - Projeto Agrinho</title>
+    
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
 
-        <!-- SEÇÃO 2: SUSTENTABILIDADE NO CAMPO -->
+    <main>
         <section id="sustentabilidade" class="section-green">
             <h2>Sustentabilidade no Campo</h2>
             <p>Produzir mais no mesmo espaço, protegendo nossos recursos naturais fundamentais.</p>
@@ -25,7 +37,6 @@
             </div>
         </section>
 
-        <!-- SEÇÃO 3: DESAFIOS AMBIENTAIS -->
         <section id="desafios" class="section-dark">
             <h2>Desafios Ambientais</h2>
             <p>Para crescer com responsabilidade, precisamos encarar e mitigar os impactos da expansão desordenada.</p>
@@ -35,85 +46,3 @@
                     <span class="material-icons">nature_people</span>
                     <h3>Desmatamento</h3>
                     <p>A necessidade urgente de barrar o avanço sobre biomas nativos.</p>
-                </div>
-                <div class="desafio-item">
-                    <span class="material-icons">water_damage</span>
-                    <h3>Crise Hídrica</h3>
-                    <p>O esgotamento de lençóis freáticos pelo uso irracional da água.</p>
-                </div>
-                <div class="desafio-item">
-                    <span class="material-icons">cloud</span>
-                    <h3>Emissões de Carbono</h3>
-                    <p>Manejo inadequado aumentando gases de efeito estufa na atmosfera.</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- SEÇÃO 4: SOLUÇÕES E FUTURO -->
-        <section id="solucoes" class="section-light">
-            <h2>O Futuro: Agricultura Regenerativa</h2>
-            <p>A ciência e a tecnologia agindo como pontes para restaurar o meio ambiente sem interromper o ritmo de produção do campo.</p>
-            
-            <div class="futuro-conteudo">
-                <p>Sistemas como a **ILPF** (Integração Lavoura-Pecuária-Floresta) e o avanço dos **bioinsumos** (defensivos naturais) provam que o crescimento horizontal deu lugar ao crescimento vertical: produzir muito mais na mesma quantidade de terra.</p>
-                
-                <!-- Desafio Complementar: Calculadora de Impacto -->
-                <div class="calculadora-box">
-                    <h3>Calculadora de Impacto Ambiental</h3>
-                    <p>Descubra a economia gerada por manejos sustentáveis.</p>
-                    <label for="hectares">Quantos hectares tem a propriedade?</label>
-                    <input type="number" id="hectares" placeholder="Ex: 50">
-                    <button onclick="calcularImpacto()">Calcular Economia</button>
-                    <p id="resultado-calculo"></p>
-                </div>
-            </div>
-        </section>
-
-        <!-- SEÇÃO 5: CONTATO E CONSCIENTIZAÇÃO -->
-        <section id="contato" class="section-contact">
-            <h2>Faça parte da mudança</h2>
-            <p>Tem dúvidas ou quer assinar nossa newsletter sobre inovações verdes no agronegócio? Envie uma mensagem!</p>
-            
-            <form id="contact-form">
-                <div class="form-group">
-                    <label for="nome">Nome:</label>
-                    <input type="text" id="nome" required>
-                </div>
-                <div class="form-group">
-                    <label for="email">E-mail:</label>
-                    <input type="email" id="email" required>
-                </div>
-                <div class="form-group">
-                    <label for="mensagem">Mensagem:</label>
-                    <textarea id="mensagem" rows="4" required></textarea>
-                </div>
-                <button type="submit">Enviar Mensagem</button>
-            </form>
-        </section>
-    </main>
-
-    <!-- RODAPÉ DO SITE -->
-    <footer>
-        <p>&copy; 2026 - Projeto Educativo Agrinho. Todos os direitos reservados.</p>
-        <div class="redes-sociais">
-            <p>Conecte-se conosco em prol do futuro sustentável.</p>
-        </div>
-    </footer>
-
-    <!-- Espaço para os Scripts de Interatividade (JavaScript) -->
-    <script>
-        function calcularImpacto() {
-            const hectares = document.getElementById('hectares').value;
-            const resultado = document.getElementById('resultado-calculo');
-            
-            if(hectares && hectares > 0) {
-                // Estimativa fictícia de 20.000 litros de água poupados por hectare/mês com irrigação inteligente
-                const aguaPoupada = hectares * 20000;
-                resultado.innerHTML = `<strong>Incrível!</strong> Ao utilizar irrigação inteligente, você economizaria cerca de <strong>${aguaPoupada.toLocaleString('pt-BR')} litros</strong> de água por mês!`;
-            } else {
-                resultado.innerText = "Por favor, insira um número válido de hectares.";
-            }
-        }
-    </script>
-</body>
-</html>
