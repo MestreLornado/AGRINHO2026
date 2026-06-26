@@ -5,8 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sustentabilidade no Campo - Projeto Agrinho</title>
     
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    
     <link rel="stylesheet" href="style.css">
     
     <script src="script.js" defer></script>
@@ -20,19 +18,19 @@
             
             <div class="cards-container">
                 <article class="card">
-                    <span class="material-icons">psychology</span>
+                    <img src="assets/agricultura-precisao.png" alt="Ilustração de Agricultura de Precisão" class="card-img">
                     <h3>Agricultura de Precisão</h3>
                     <p>Uso de GPS e sensores no solo para aplicar água e fertilizantes apenas onde é necessário.</p>
                 </article>
 
                 <article class="card">
-                    <span class="material-icons">water_drop</span>
+                    <img src="assets/irrigacao-inteligente.png" alt="Ilustração de Irrigação Inteligente" class="card-img">
                     <h3>Irrigação Inteligente</h3>
                     <p>Sistemas IoT que medem a umidade do solo e o clima para evitar o desperdício de água.</p>
                 </article>
 
                 <article class="card">
-                    <span class="material-icons">solar_power</span>
+                    <img src="assets/energia-limpa.png" alt="Ilustração de Energia Limpa" class="card-img">
                     <h3>Energia Limpa</h3>
                     <p>Fazendas movidas a painéis solares e biodigestores que tratam resíduos orgânicos.</p>
                 </article>
@@ -45,17 +43,17 @@
             
             <div class="desafios-list">
                 <div class="desafio-item">
-                    <span class="material-icons">nature_people</span>
+                    <img src="assets/desmatamento.png" alt="Alerta de Desmatamento" class="desafio-img">
                     <h3>Desmatamento</h3>
                     <p>A necessidade urgente de barrar o avanço sobre biomas nativos.</p>
                 </div>
                 <div class="desafio-item">
-                    <span class="material-icons">water_damage</span>
+                    <img src="assets/crise-hidrica.png" alt="Alerta de Crise Hídrica" class="desafio-img">
                     <h3>Crise Hídrica</h3>
                     <p>O esgotamento de lençóis freáticos pelo uso irracional da água.</p>
                 </div>
                 <div class="desafio-item">
-                    <span class="material-icons">cloud</span>
+                    <img src="assets/emissoes-carbono.png" alt="Alerta de Emissões de Carbono" class="desafio-img">
                     <h3>Emissões de Carbono</h3>
                     <p>Manejo inadequado aumentando gases de efeito estufa na atmosfera.</p>
                 </div>
@@ -67,15 +65,23 @@
             <p>A ciência e a tecnologia agindo como pontes para restaurar o meio ambiente sem interromper o ritmo de produção do campo.</p>
             
             <div class="futuro-conteudo">
-                <p>Sistemas como a <strong>ILPF</strong> (Integração Lavoura-Pecuária-Floresta) e o avanço dos <strong>bioinsumos</strong> (defensivos naturais) provam que o crescimento horizontal deu lugar ao crescimento vertical: produzir muito mais na mesma quantidade de terra.</p>
-                
-                <div class="calculadora-box">
-                    <h3>Calculadora de Impacto Ambiental</h3>
-                    <p>Descubra a economia gerada por manejos sustentáveis.</p>
-                    <label for="hectares">Quantos hectares tem a propriedade?</label>
-                    <input type="number" id="hectares" placeholder="Ex: 50">
-                    <button id="btn-calcular">Calcular Economia</button>
-                    <p id="resultado-calculo"></p>
+                <div class="futuro-flex">
+                    <div class="futuro-texto">
+                        <p>Sistemas como a <strong>ILPF</strong> (Integração Lavoura-Pecuária-Floresta) e o avanço dos <strong>bioinsumos</strong> (defensivos naturais) provam que o crescimento horizontal deu lugar ao crescimento vertical: produzir muito mais na mesma quantidade de terra.</p>
+                        
+                        <div class="calculadora-box">
+                            <h3>Calculadora de Impacto Ambiental</h3>
+                            <p>Descubra a economia gerada por manejos sustentáveis.</p>
+                            <label for="hectares">Quantos hectares tem a propriedade?</label>
+                            <input type="number" id="hectares" placeholder="Ex: 50">
+                            <button id="btn-calcular">Calcular Economia</button>
+                            <p id="resultado-calculo"></p>
+                        </div>
+                    </div>
+                    
+                    <div class="futuro-imagem">
+                        <img src="assets/agricultura-regenerativa.jpg" alt="Campo demonstrativo do sistema ILPF" class="ilpf-img">
+                    </div>
                 </div>
             </div>
         </section>
