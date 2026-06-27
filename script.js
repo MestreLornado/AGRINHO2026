@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const inputHectares = document.getElementById('hectares');
     const resultadoCalculo = document.getElementById('resultado-calculo');
 
-    if (btnCalcular && inputHectares && resultadoCalculo) {
+    if (btnCalcular && inputHorectares && resultadoCalculo) {
         btnCalcular.addEventListener('click', () => {
             const hectares = parseFloat(inputHectares.value);
             
