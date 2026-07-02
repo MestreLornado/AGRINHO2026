@@ -9,8 +9,8 @@
     --white: #FFFFFF;
     --text-dark: #333333;
     --text-light: #F5F5F5;
-    --shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
-    --transition: all 0.3s ease;
+    --shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+    --transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
     --focus-shadow: 0 0 0 3px rgba(76, 175, 80, 0.2);
 }
 
@@ -43,7 +43,6 @@ section h2 {
     font-size: 2.5rem;
     margin-bottom: 1rem;
     font-weight: 700;
-    color: inherit;
 }
 
 section > p {
@@ -51,54 +50,15 @@ section > p {
     max-width: 800px;
     margin: 0 auto 3rem auto;
     opacity: 0.9;
-    line-height: 1.8;
 }
+
+.section-green { background-color: var(--primary-color); color: var(--text-light); }
+.section-dark { background-color: var(--dark-bg); color: var(--text-light); }
+.section-light { background-color: var(--light-bg); color: var(--text-dark); }
+.section-contact { background-color: #F9F9F9; color: var(--text-dark); border-top: 4px solid var(--primary-color); }
 
 /* ==========================================================================
-   CORES DAS SEÇÕES (Classes)
-   ========================================================================== */
-.section-green {
-    background-color: var(--primary-color);
-    color: var(--text-light);
-}
-
-.section-dark {
-    background-color: var(--dark-bg);
-    color: var(--text-light);
-}
-
-.section-light {
-    background-color: var(--light-bg);
-    color: var(--text-dark);
-}
-
-.section-contact {
-    background-color: #F9F9F9;
-    color: var(--text-dark);
-    border-top: 4px solid var(--primary-color);
-}
-
-/* ==========================================================================
-   ESTILIZAÇÃO DAS IMAGENS DOS CARDS (assets)
-   ========================================================================== */
-.card-img {
-    width: 100%;
-    max-width: 240px; /* Tamanho ideal para as imagens geradas por IA dentro do card */
-    height: 160px;
-    margin-bottom: 1.5rem;
-    object-fit: cover; /* Recorta a imagem proporcionalmente sem distorcer */
-    border-radius: 8px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-    transition: var(--transition);
-}
-
-.card:hover .card-img {
-    transform: scale(1.04); /* Leve zoom ao passar o mouse */
-    box-shadow: 0 6px 15px rgba(0,0,0,0.15);
-}
-
-/* ==========================================================================
-   CARDS (Sustentabilidade no Campo)
+   ESTILIZAÇÃO E ANIMAÇÃO ESTRUTURAL DOS FLASHCARDS (EFEITO 3D)
    ========================================================================== */
 .cards-container {
     display: grid;
@@ -109,40 +69,90 @@ section > p {
     padding: 0 1rem;
 }
 
-.card {
-    background-color: var(--white);
-    color: var(--text-dark);
-    padding: 2rem;
-    border-radius: 12px;
-    box-shadow: var(--shadow);
+.flashcard {
+    background-color: transparent;
+    width: 100%;
+    height: 380px; /* Altura firme e fixa para acomodar imagem e textos */
+    perspective: 1000px; /* Ativa o ambiente 3D para o efeito */
+    cursor: pointer;
+}
+
+.flashcard-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
     transition: var(--transition);
-    border: 1px solid rgba(46, 125, 50, 0.1);
+    transform-style: preserve-3d; /* Mantém os filhos em ambiente 3D */
+    box-shadow: var(--shadow);
+    border-radius: 12px;
+}
+
+/* Classe de rotação injetada inteligentemente pelo script.js */
+.flashcard.flipped .flashcard-inner {
+    transform: rotateY(180deg);
+}
+
+.flashcard-front, .flashcard-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden; /* Esconde o verso enquanto a frente aparece e vice-versa */
+    border-radius: 12px;
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    border: 1px solid rgba(46, 125, 50, 0.1);
 }
 
-.card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 12px 28px rgba(46, 125, 50, 0.2);
-    border-color: rgba(46, 125, 50, 0.3);
+.flashcard-front {
+    background-color: var(--white);
+    color: var(--text-dark);
 }
 
-.card h3 {
+.flashcard-back {
+    background-color: var(--dark-bg);
+    color: var(--text-light);
+    transform: rotateY(180deg); /* Começa invertido de costas */
+    justify-content: center;
+}
+
+/* Ajuste das Imagens nos Flashcards */
+.card-img {
+    width: 100%;
+    max-width: 220px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 8px;
     margin-bottom: 1rem;
-    font-size: 1.3rem;
-    color: var(--primary-color);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.05);
 }
 
-.card p {
-    color: #666;
-    line-height: 1.7;
-    text-align: center;
+.hint-virar {
+    font-size: 0.75rem;
+    color: #999;
+    margin-top: auto;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.flashcard-back h3 {
+    color: var(--secondary-color);
+    margin-bottom: 1rem;
+    font-size: 1.4rem;
+}
+
+.flashcard-back p {
     font-size: 0.95rem;
+    line-height: 1.6;
+    color: #E0E0E0;
 }
 
 /* ==========================================================================
-   LISTA DE DESAFIOS (Com Ícones)
+   DESAFIOS AMBIENTAIS (ÍCONES DO GOOGLE)
    ========================================================================== */
 .desafios-list {
     display: grid;
@@ -150,24 +160,16 @@ section > p {
     gap: 2rem;
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 1rem;
 }
 
 .desafio-item {
-    background-color: rgba(255, 255, 255, 0.08);
-    border: 1px solid rgba(255, 255, 255, 0.15);
+    background-color: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.12);
     padding: 2rem;
     border-radius: 12px;
-    transition: var(--transition);
     display: flex;
     flex-direction: column;
     align-items: center;
-    text-align: center;
-}
-
-.desafio-item:hover {
-    background-color: rgba(255, 255, 255, 0.15);
-    transform: translateY(-5px);
 }
 
 .desafio-item .material-icons {
@@ -176,187 +178,52 @@ section > p {
     margin-bottom: 1rem;
 }
 
-.desafio-item h3 {
-    font-size: 1.2rem;
-    margin-bottom: 0.8rem;
-    color: var(--text-light);
-}
-
-.desafio-item p {
-    font-size: 0.95rem;
-    line-height: 1.6;
-    opacity: 0.9;
-}
+.desafio-item h3 { margin-bottom: 0.5rem; color: var(--text-light); }
 
 /* ==========================================================================
-   FUTURO E CALCULADORA
+   CALCULADORA E ELEMENTOS ADICIONAIS
    ========================================================================== */
-.futuro-conteudo {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 0 1rem;
-}
-
-.futuro-conteudo > p {
-    font-size: 1.1rem;
-    margin-bottom: 2.5rem;
-    line-height: 1.8;
-}
-
+.futuro-conteudo { max-width: 700px; margin: 0 auto; }
 .calculadora-box {
     background-color: var(--white);
     padding: 2.5rem;
     border-radius: 12px;
     box-shadow: var(--shadow);
-    text-align: center;
     border-top: 5px solid var(--secondary-color);
-}
-
-.calculadora-box h3 {
-    color: var(--primary-color);
-    margin-bottom: 1.5rem;
-    font-size: 1.5rem;
-}
-
-.calculadora-box p {
-    margin-bottom: 1.5rem;
-    color: #666;
-}
-
-.calculadora-box label {
-    display: block;
-    margin: 1.5rem 0 0.5rem;
-    font-weight: 600;
     color: var(--text-dark);
 }
-
+.calculadora-box h3 { color: var(--primary-color); margin-bottom: 1rem; }
 .calculadora-box input {
-    width: 100%;
-    max-width: 300px;
-    padding: 0.8rem;
-    border: 2px solid #ddd;
-    border-radius: 6px;
-    font-size: 1rem;
-    margin-bottom: 1rem;
-    outline: none;
-    transition: var(--transition);
+    width: 100%; max-width: 280px; padding: 0.8rem;
+    border: 2px solid #ddd; border-radius: 6px; margin: 1rem 0; outline: none;
 }
-
-.calculadora-box input:focus {
-    border-color: var(--secondary-color);
-    box-shadow: var(--focus-shadow);
-}
-
+.calculadora-box input:focus { border-color: var(--secondary-color); }
 #resultado-calculo {
-    margin-top: 1.5rem;
-    padding: 1.5rem;
-    font-size: 1.2rem;
-    font-weight: 600;
-    color: var(--primary-color);
-    background-color: rgba(46, 125, 50, 0.08);
-    border-radius: 8px;
-    border-left: 4px solid var(--primary-color);
+    margin-top: 1rem; padding: 1rem; font-weight: 600;
+    color: var(--primary-color); background: rgba(46, 125, 50, 0.08); border-radius: 6px;
 }
 
 /* ==========================================================================
-   FORMULÁRIO DE CONTATO
+   FORMULÁRIO DE CONTATO E BOTÕES
    ========================================================================== */
-#contact-form {
-    max-width: 600px;
-    margin: 0 auto;
-    text-align: left;
-    background: #FAFAFA;
-    padding: 2.5rem;
-    border-radius: 12px;
-    border: 1px solid #e0e0e0;
-}
+#contact-form { max-width: 600px; margin: 0 auto; background: #FAFAFA; padding: 2.5rem; border-radius: 12px; border: 1px solid #e0e0e0; text-align: left; }
+.form-group { margin-bottom: 1.2rem; }
+.form-group label { display: block; margin-bottom: 0.4rem; font-weight: 600; }
+.form-group input, .form-group textarea { width: 100%; padding: 0.8rem; border: 2px solid #ddd; border-radius: 6px; outline: none; }
+.form-group input:focus, .form-group textarea:focus { border-color: var(--secondary-color); }
+.form-group textarea { resize: vertical; min-height: 100px; }
 
-.form-group {
-    margin-bottom: 1.5rem;
-}
+button { background-color: var(--secondary-color); color: var(--white); border: none; padding: 0.8rem 2rem; font-size: 1rem; font-weight: 600; border-radius: 6px; cursor: pointer; transition: 0.2s; }
+button:hover { background-color: var(--primary-color); transform: scale(1.02); }
 
-.form-group label {
-    display: block;
-    margin-bottom: 0.6rem;
-    font-weight: 600;
-    color: var(--text-dark);
-}
-
-.form-group input,
-.form-group textarea {
-    width: 100%;
-    padding: 0.8rem;
-    border: 2px solid #ddd;
-    border-radius: 6px;
-    font-size: 1rem;
-    outline: none;
-    transition: var(--transition);
-}
-
-.form-group input:focus,
-.form-group textarea:focus {
-    border-color: var(--secondary-color);
-    box-shadow: var(--focus-shadow);
-}
-
-.form-group textarea {
-    resize: vertical;
-    min-height: 120px;
-}
+footer { background-color: #1a1a1a; color: var(--text-light); text-align: center; padding: 2rem 1rem; margin-top: 3rem; font-size: 0.85rem; }
 
 /* ==========================================================================
-   BOTÕES GERAIS
-   ========================================================================== */
-button {
-    background-color: var(--secondary-color);
-    color: var(--white);
-    border: none;
-    padding: 0.8rem 2rem;
-    font-size: 1.1rem;
-    font-weight: 600;
-    border-radius: 6px;
-    cursor: pointer;
-    transition: var(--transition);
-}
-
-button:hover {
-    background-color: var(--primary-color);
-    transform: scale(1.02);
-}
-
-/* ==========================================================================
-   RODAPÉ (FOOTER)
-   ========================================================================== */
-footer {
-    background-color: #1a1a1a;
-    color: var(--text-light);
-    text-align: center;
-    padding: 2rem 1rem;
-    font-size: 0.9rem;
-    margin-top: 3rem;
-}
-
-/* ==========================================================================
-   RESPONSIVIDADE
+   RESPONSIVIDADE (CELULAR)
    ========================================================================== */
 @media (max-width: 768px) {
-    section {
-        padding: 3rem 1.5rem;
-    }
-
-    .cards-container,
-    .desafios-list {
-        grid-template-columns: 1fr;
-        gap: 1.5rem;
-    }
-
-    .card-img {
-        max-width: 100%;
-        height: auto;
-    }
-
-    button {
-        width: 100%;
-        padding: 1rem;
-    }
+    section { padding: 3rem 1.5rem; }
+    .cards-container { grid-template-columns: 1fr; }
+    .flashcard { height: 360px; }
+    button { width: 100%; }
 }
