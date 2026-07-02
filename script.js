@@ -1,9 +1,13 @@
 document.addEventListener('DOMContentLoaded', () => {
+    
+    // ==========================================================================
+    // 1. LÓGICA DA CALCULADORA DE IMPACTO AMBIENTAL
+    // ==========================================================================
     const btnCalcular = document.getElementById('btn-calcular');
     const inputHectares = document.getElementById('hectares');
     const resultadoCalculo = document.getElementById('resultado-calculo');
 
-    if (btnCalcular && inputHorectares && resultadoCalculo) {
+    if (btnCalcular && inputHectares && resultadoCalculo) {
         btnCalcular.addEventListener('click', () => {
             const hectares = parseFloat(inputHectares.value);
             
@@ -16,6 +20,9 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    // ==========================================================================
+    // 2. VALIDAÇÃO DO FORMULÁRIO DE CONTATO
+    // ==========================================================================
     const formContato = document.getElementById('contact-form');
     if (formContato) {
         formContato.addEventListener('submit', (event) => {
@@ -34,4 +41,16 @@ document.addEventListener('DOMContentLoaded', () => {
             formContato.reset();
         });
     }
+
+    // ==========================================================================
+    // 3. INTERATIVIDADE DOS FLASHCARDS (VIRAR AO CLICAR)
+    // ==========================================================================
+    const flashcards = document.querySelectorAll('.flashcard');
+    
+    flashcards.forEach(card => {
+        card.addEventListener('click', () => {
+            // Liga/Desliga a classe que faz o cartão girar no CSS
+            card.classList.toggle('flipped');
+        });
+    });
 });
